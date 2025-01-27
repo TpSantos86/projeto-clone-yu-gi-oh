@@ -23,6 +23,22 @@ const cartoes = document.querySelectorAll(".cartao");
 let cartaoAtual = 0;
 
 // passo 2 - dar um jeito de identificar o clique do usuário na seta avancar
+
+cartoes.forEach(cartao => {
+cartao.addEventListener("click", function() {
+  const cartaVirada = cartao.querySelector(".carta-virada");
+
+  //virar o cartão
+  cartao.classList.toggle("virar");
+  //mostrar o fundo da carta 
+  cartaVirada.classList.toggle("mostrar-fundo-carta");
+
+
+  const descricao = cartao.querySelector(".descrição");
+  descricao.classList.toggle("esconder");
+});
+});
+
 btnAvancar.addEventListener("click", function (){
   if(cartaoAtual === cartoes.length - 1) return;
    
@@ -43,6 +59,7 @@ anterior da lista
   - passo 3 - fazer aparecer o cartão anterior da lista
     - passo 4 - buscar o cartão que esta selecionado e esconder
     */
+
     const btnVoltar = document.getElementById("btn-voltar");
 
     btnVoltar.addEventListener("click", function (){
